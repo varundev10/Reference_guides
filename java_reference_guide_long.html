@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Java Reference Guide</title>
+    <style>
+        @page {
+            margin: 2cm;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        pre code {
+            background: none;
+            color: #ecf0f1;
+            padding: 0;
+        }
+        .section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        .title-page {
+            text-align: center;
+            padding: 100px 0;
+            page-break-after: always;
+        }
+        .title-page h1 {
+            font-size: 3em;
+            border: none;
+            margin-bottom: 20px;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-page">
+        <h1>Comprehensive Java Reference Guide</h1>
+        <p style="font-size: 1.2em; color: #7f8c8d;">A Complete Resource for Java Developers</p>
+        <p style="margin-top: 50px; color: #95a5a6;">Covering Core Concepts, Java 8 Features, and Multithreading</p>
+    </div>
+
+    <h1>1. Basic Java Concepts</h1>
+
+    <div class="section">
+        <h2>1.1 Data Types</h2>
+        
+        <h3>Primitive Data Types</h3>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Range</th>
+                <th>Default Value</th>
+            </tr>
+            <tr>
+                <td><code>byte</code></td>
+                <td>8-bit</td>
+                <td>-128 to 127</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><code>short</code></td>
+                <td>16-bit</td>
+                <td>-32,768 to 32,767</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><code>int</code></td>
+                <td>32-bit</td>
+                <td>-2³¹ to 2³¹-1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><code>long</code></td>
+                <td>64-bit</td>
+                <td>-2⁶³ to 2⁶³-1</td>
+                <td>0L</td>
+            </tr>
+            <tr>
+                <td><code>float</code></td>
+                <td>32-bit</td>
+                <td>IEEE 754 floating point</td>
+                <td>0.0f</td>
+            </tr>
+            <tr>
+                <td><code>double</code></td>
+                <td>64-bit</td>
+                <td>IEEE 754 floating point</td>
+                <td>0.0d</td>
+            </tr>
+            <tr>
+                <td><code>char</code></td>
+                <td>16-bit</td>
+                <td>0 to 65,535 (Unicode)</td>
+                <td>'\u0000'</td>
+            </tr>
+            <tr>
+                <td><code>boolean</code></td>
+                <td>1-bit</td>
+                <td>true or false</td>
+                <td>false</td>
+            </tr>
+        </table>
+
+        <h3>Examples</h3>
+        <pre><code>// Primitive data types
+int age = 25;
+long population = 7800000000L;
+float temperature = 36.6f;
+double pi = 3.14159265359;
+char grade = 'A';
+boolean isActive = true;
+
+// Reference types
+String name = "John Doe";
+Integer boxedInt = 100;
+Double boxedDouble = 99.99;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>1.2 Control Structures</h2>
+
+        <h3>If-Else Statement</h3>
+        <pre><code>int score = 85;
+
+if (score >= 90) {
+    System.out.println("Grade: A");
+} else if (score >= 80) {
+    System.out.println("Grade: B");
+} else if (score >= 70) {
+    System.out.println("Grade: C");
+} else {
+    System.out.println("Grade: F");
+}</code></pre>
+
+        <h3>Switch Statement</h3>
+        <pre><code>String day = "Monday";
+
+switch (day) {
+    case "Monday":
+        System.out.println("Start of work week");
+        break;
+    case "Friday":
+        System.out.println("TGIF!");
+        break;
+    case "Saturday":
+    case "Sunday":
+        System.out.println("Weekend!");
+        break;
+    default:
+        System.out.println("Midweek day");
+}</code></pre>
+
+        <h3>For Loop</h3>
+        <pre><code>// Standard for loop
+for (int i = 0; i < 5; i++) {
+    System.out.println("Count: " + i);
+}
+
+// Enhanced for loop (for-each)
+int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println("Number: " + num);
+}</code></pre>
+
+        <h3>While Loop</h3>
+        <pre><code>int count = 0;
+while (count < 5) {
+    System.out.println("Count: " + count);
+    count++;
+}</code></pre>
+
+        <h3>Do-While Loop</h3>
+        <pre><code>int i = 0;
+do {
+    System.out.println("Value: " + i);
+    i++;
+} while (i < 5);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>1.3 Common String Methods</h2>
+
+        <h3>String Methods Examples</h3>
+        <pre><code>String text = "  Hello World  ";
+
+// length() - returns the length of the string
+int len = text.length(); // 15
+
+// trim() - removes leading and trailing whitespace
+String trimmed = text.trim(); // "Hello World"
+
+// substring() - extracts a portion of the string
+String sub1 = text.substring(2); // "Hello World  "
+String sub2 = text.substring(2, 7); // "Hello"
+
+// toLowerCase() and toUpperCase()
+String lower = text.toLowerCase(); // "  hello world  "
+String upper = text.toUpperCase(); // "  HELLO WORLD  "
+
+// charAt() - returns character at specified index
+char ch = text.charAt(2); // 'H'
+
+// indexOf() - returns index of first occurrence
+int index = text.indexOf("World"); // 8
+
+// replace() - replaces characters or substrings
+String replaced = text.replace("World", "Java"); // "  Hello Java  "
+
+// split() - splits string into array
+String[] words = trimmed.split(" "); // ["Hello", "World"]
+
+// equals() - checks equality (case-sensitive)
+boolean isEqual = text.equals("  Hello World  "); // true
+
+// equalsIgnoreCase() - checks equality (case-insensitive)
+boolean isEqualIgnoreCase = trimmed.equalsIgnoreCase("hello world"); // true
+
+// contains() - checks if string contains sequence
+boolean contains = text.contains("Hello"); // true
+
+// startsWith() and endsWith()
+boolean starts = trimmed.startsWith("Hello"); // true
+boolean ends = trimmed.endsWith("World"); // true
+
+// isEmpty() - checks if string is empty
+boolean empty = text.isEmpty(); // false</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>1.4 Common Array Methods</h2>
+
+        <h3>Array Operations</h3>
+        <pre><code>import java.util.Arrays;
+
+// Array declaration and initialization
+int[] numbers = {5, 2, 8, 1, 9};
+
+// Arrays.toString() - converts array to string
+String arrayStr = Arrays.toString(numbers); // "[5, 2, 8, 1, 9]"
+
+// Arrays.sort() - sorts array in ascending order
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers)); // [1, 2, 5, 8, 9]
+
+// Arrays.binarySearch() - searches for element (array must be sorted)
+int index = Arrays.binarySearch(numbers, 5); // 2
+
+// Arrays.fill() - fills array with specified value
+int[] filled = new int[5];
+Arrays.fill(filled, 10); // [10, 10, 10, 10, 10]
+
+// Arrays.copyOf() - copies array
+int[] copy = Arrays.copyOf(numbers, numbers.length);
+
+// Arrays.copyOfRange() - copies range of array
+int[] rangeCopy = Arrays.copyOfRange(numbers, 1, 4); // [2, 5, 8]
+
+// Arrays.equals() - compares two arrays
+boolean areEqual = Arrays.equals(numbers, copy); // true
+
+// Multi-dimensional arrays
+int[][] matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+// Arrays.deepToString() - for multi-dimensional arrays
+String matrixStr = Arrays.deepToString(matrix);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>1.5 Common Collection Methods</h2>
+
+        <h3>ArrayList Methods</h3>
+        <pre><code>import java.util.ArrayList;
+import java.util.Collections;
+
+ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+
+// add() - adds element
+list.add("Apple");
+list.add("Banana");
+list.add("Cherry");
+
+// add(index, element) - adds at specific position
+list.add(1, "Apricot");
+
+// get() - retrieves element at index
+String fruit = list.get(0); // "Apple"
+
+// set() - replaces element at index
+list.set(0, "Avocado");
+
+// remove() - removes element by index or object
+list.remove(0);
+list.remove("Banana");
+
+// size() - returns number of elements
+int size = list.size();
+
+// contains() - checks if element exists
+boolean hasCherry = list.contains("Cherry"); // true
+
+// indexOf() - returns index of element
+int index = list.indexOf("Cherry");
+
+// clear() - removes all elements
+// list.clear();
+
+// isEmpty() - checks if list is empty
+boolean empty = list.isEmpty();
+
+// Collections.sort() - sorts the list
+Collections.sort(list);
+
+// Collections.reverse() - reverses the list
+Collections.reverse(list);</code></pre>
+
+        <h3>HashMap Methods</h3>
+        <pre><code>import java.util.HashMap;
+import java.util.Map;
+
+HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+
+// put() - adds key-value pair
+map.put("John", 25);
+map.put("Jane", 30);
+map.put("Bob", 35);
+
+// get() - retrieves value by key
+Integer age = map.get("John"); // 25
+
+// getOrDefault() - returns default if key not found
+Integer age2 = map.getOrDefault("Alice", 0); // 0
+
+// containsKey() - checks if key exists
+boolean hasJohn = map.containsKey("John"); // true
+
+// containsValue() - checks if value exists
+boolean has30 = map.containsValue(30); // true
+
+// remove() - removes key-value pair
+map.remove("Bob");
+
+// size() - returns number of entries
+int mapSize = map.size();
+
+// keySet() - returns set of all keys
+for (String key : map.keySet()) {
+    System.out.println(key);
+}
+
+// values() - returns collection of all values
+for (Integer value : map.values()) {
+    System.out.println(value);
+}
+
+// entrySet() - returns set of key-value pairs
+for (Map.Entry&lt;String, Integer&gt; entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}</code></pre>
+    </div>
+
+    <h1>2. Java 8 Features</h1>
+
+    <div class="section">
+        <h2>2.1 Lambda Expressions</h2>
+
+        <p>Lambda expressions provide a concise way to represent anonymous functions. They enable functional programming in Java.</p>
+
+        <h3>Basic Syntax</h3>
+        <pre><code>// Traditional anonymous class
+Runnable r1 = new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("Hello World");
+    }
+};
+
+// Lambda expression
+Runnable r2 = () -&gt; System.out.println("Hello World");
+
+// Lambda with parameters
+Comparator&lt;Integer&gt; comparator = (a, b) -&gt; a.compareTo(b);
+
+// Lambda with multiple statements
+Comparator&lt;String&gt; stringComparator = (s1, s2) -&gt; {
+    System.out.println("Comparing: " + s1 + " and " + s2);
+    return s1.compareTo(s2);
+};</code></pre>
+
+        <h3>Lambda Examples</h3>
+        <pre><code>import java.util.ArrayList;
+import java.util.List;
+
+List&lt;String&gt; names = Arrays.asList("Alice", "Bob", "Charlie", "David");
+
+// Using lambda with forEach
+names.forEach(name -&gt; System.out.println(name));
+
+// Using lambda with sorting
+names.sort((s1, s2) -&gt; s1.compareTo(s2));
+
+// Using method reference (shorthand for lambda)
+names.forEach(System.out::println);
+
+// Lambda with filter
+List&lt;String&gt; filtered = new ArrayList&lt;&gt;();
+names.forEach(name -&gt; {
+    if (name.startsWith("A")) {
+        filtered.add(name);
+    }
+});</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>2.2 Functional Interfaces</h2>
+
+        <p>Functional interfaces have exactly one abstract method and can be used with lambda expressions.</p>
+
+        <h3>Predicate&lt;T&gt;</h3>
+        <p>Represents a boolean-valued function of one argument.</p>
+        <pre><code>import java.util.function.Predicate;
+
+// Predicate to check if number is even
+Predicate&lt;Integer&gt; isEven = num -&gt; num % 2 == 0;
+System.out.println(isEven.test(4)); // true
+System.out.println(isEven.test(5)); // false
+
+// Predicate for string length
+Predicate&lt;String&gt; isLongString = s -&gt; s.length() &gt; 5;
+System.out.println(isLongString.test("Hello")); // false
+System.out.println(isLongString.test("HelloWorld")); // true
+
+// Combining predicates
+Predicate&lt;Integer&gt; isPositive = num -&gt; num &gt; 0;
+Predicate&lt;Integer&gt; isPositiveEven = isEven.and(isPositive);
+System.out.println(isPositiveEven.test(4)); // true
+System.out.println(isPositiveEven.test(-4)); // false</code></pre>
+
+        <h3>Function&lt;T, R&gt;</h3>
+        <p>Represents a function that accepts one argument and produces a result.</p>
+        <pre><code>import java.util.function.Function;
+
+// Function to convert string to length
+Function&lt;String, Integer&gt; stringLength = s -&gt; s.length();
+System.out.println(stringLength.apply("Hello")); // 5
+
+// Function to square a number
+Function&lt;Integer, Integer&gt; square = x -&gt; x * x;
+System.out.println(square.apply(5)); // 25
+
+// Chaining functions
+Function&lt;Integer, Integer&gt; addTwo = x -&gt; x + 2;
+Function&lt;Integer, Integer&gt; multiplyByThree = x -&gt; x * 3;
+Function&lt;Integer, Integer&gt; combined = addTwo.andThen(multiplyByThree);
+System.out.println(combined.apply(5)); // (5 + 2) * 3 = 21</code></pre>
+
+        <h3>Consumer&lt;T&gt;</h3>
+        <p>Represents an operation that accepts a single input argument and returns no result.</p>
+        <pre><code>import java.util.function.Consumer;
+import java.util.Arrays;
+import java.util.List;
+
+// Consumer to print with prefix
+Consumer&lt;String&gt; printer = s -&gt; System.out.println("Value: " + s);
+printer.accept("Hello"); // Value: Hello
+
+// Consumer for list iteration
+List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);
+Consumer&lt;Integer&gt; doubleAndPrint = num -&gt; System.out.println(num * 2);
+numbers.forEach(doubleAndPrint);
+
+// Chaining consumers
+Consumer&lt;String&gt; upperCase = s -&gt; System.out.println(s.toUpperCase());
+Consumer&lt;String&gt; length = s -&gt; System.out.println("Length: " + s.length());
+Consumer&lt;String&gt; combined = upperCase.andThen(length);
+combined.accept("hello"); // HELLO, Length: 5</code></pre>
+
+        <h3>Supplier&lt;T&gt;</h3>
+        <p>Represents a supplier of results (takes no arguments, returns a value).</p>
+        <pre><code>import java.util.function.Supplier;
+import java.time.LocalDateTime;
+
+// Supplier for random numbers
+Supplier&lt;Double&gt; randomSupplier = () -&gt; Math.random();
+System.out.println(randomSupplier.get());
+
+// Supplier for current time
+Supplier&lt;LocalDateTime&gt; timeSupplier = () -&gt; LocalDateTime.now();
+System.out.println(timeSupplier.get());
+
+// Supplier with complex logic
+Supplier&lt;String&gt; greetingSupplier = () -&gt; {
+    int hour = LocalDateTime.now().getHour();
+    if (hour < 12) return "Good Morning";
+    else if (hour < 18) return "Good Afternoon";
+    else return "Good Evening";
+};
+System.out.println(greetingSupplier.get());</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>2.3 Stream API</h2>
+
+        <p>The Stream API provides a functional approach to processing collections of objects.</p>
+
+        <h3>Creating Streams</h3>
+        <pre><code>import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+// From collection
+List&lt;String&gt; list = Arrays.asList("a", "b", "c");
+Stream&lt;String&gt; stream1 = list.stream();
+
+// From array
+String[] array = {"a", "b", "c"};
+Stream&lt;String&gt; stream2 = Arrays.stream(array);
+
+// Using Stream.of()
+Stream&lt;String&gt; stream3 = Stream.of("a", "b", "c");
+
+// Infinite streams
+Stream&lt;Integer&gt; infiniteStream = Stream.iterate(0, n -&gt; n + 2);
+Stream&lt;Double&gt; randomStream = Stream.generate(Math::random);</code></pre>
+
+        <h3>Filtering</h3>
+        <pre><code>List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+// Filter even numbers
+List&lt;Integer&gt; evenNumbers = numbers.stream()
+    .filter(n -&gt; n % 2 == 0)
+    .collect(Collectors.toList());
+// Result: [2, 4, 6, 8, 10]
+
+// Filter and count
+long count = numbers.stream()
+    .filter(n -&gt; n &gt; 5)
+    .count();
+// Result: 5
+
+// Multiple filters
+List&lt;Integer&gt; filtered = numbers.stream()
+    .filter(n -&gt; n % 2 == 0)
+    .filter(n -&gt; n &gt; 5)
+    .collect(Collectors.toList());
+// Result: [6, 8, 10]</code></pre>
+
+        <h3>Mapping</h3>
+        <pre><code>List&lt;String&gt; words = Arrays.asList("hello", "world", "java", "stream");
+
+// Map to uppercase
+List&lt;String&gt; uppercase = words.stream()
+    .map(String::toUpperCase)
+    .collect(Collectors.toList());
+// Result: [HELLO, WORLD, JAVA, STREAM]
+
+// Map to lengths
+List&lt;Integer&gt; lengths = words.stream()
+    .map(String::length)
+    .collect(Collectors.toList());
+// Result: [5, 5, 4, 6]
+
+// Map to custom objects
+List&lt;Person&gt; people = Arrays.asList(
+    new Person("John", 25),
+    new Person("Jane", 30)
+);
+List&lt;String&gt; names = people.stream()
+    .map(Person::getName)
+    .collect(Collectors.toList());
+
+// flatMap - flattening nested structures
+List&lt;List&lt;Integer&gt;&gt; nested = Arrays.asList(
+    Arrays.asList(1, 2),
+    Arrays.asList(3, 4),
+    Arrays.asList(5, 6)
+);
+List&lt;Integer&gt; flattened = nested.stream()
+    .flatMap(List::stream)
+    .collect(Collectors.toList());
+// Result: [1, 2, 3, 4, 5, 6]</code></pre>
+
+        <h3>Collecting</h3>
+        <pre><code>import java.util.stream.Collectors;
+import java.util.Map;
+import java.util.Set;
+
+List&lt;String&gt; items = Arrays.asList("apple", "banana", "apple", "cherry", "banana");
+
+// Collect to List
+List&lt;String&gt; list = items.stream()
+    .collect(Collectors.toList());
+
+// Collect to Set (removes duplicates)
+Set&lt;String&gt; set = items.stream()
+    .collect(Collectors.toSet());
+
+// Joining strings
+String joined = items.stream()
+    .collect(Collectors.joining(", "));
+// Result: "apple, banana, apple, cherry, banana"
+
+// Counting
+Long count = items.stream()
+    .collect(Collectors.counting());
+
+// Grouping by
+Map&lt;Integer, List&lt;String&gt;&gt; groupedByLength = items.stream()
+    .collect(Collectors.groupingBy(String::length));
+// Result: {5=[apple, apple], 6=[banana, banana, cherry]}
+
+// Partitioning (boolean predicate)
+Map&lt;Boolean, List&lt;String&gt;&gt; partitioned = items.stream()
+    .collect(Collectors.partitioningBy(s -&gt; s.length() &gt; 5));
+
+// Summarizing
+IntSummaryStatistics stats = items.stream()
+    .collect(Collectors.summarizingInt(String::length));
+System.out.println("Average length: " + stats.getAverage());</code></pre>
+
+        <h3>Other Stream Operations</h3>
+        <pre><code>List&lt;Integer&gt; numbers = Arrays.asList(5, 2, 8, 1, 9, 3, 7, 4, 6);
+
+// sorted() - sorts elements
+List&lt;Integer&gt; sorted = numbers.stream()
+    .sorted()
+    .collect(Collectors.toList());
+
+// distinct() - removes duplicates
+List&lt;Integer&gt; withDuplicates = Arrays.asList(1, 2, 2, 3, 3, 3, 4);
+List&lt;Integer&gt; unique = withDuplicates.stream()
+    .distinct()
+    .collect(Collectors.toList());
+
+// limit() - limits stream size
+List&lt;Integer&gt; first3 = numbers.stream()
+    .limit(3)
+    .collect(Collectors.toList());
+
+// skip() - skips elements
+List&lt;Integer&gt; skipFirst3 = numbers.stream()
+    .skip(3)
+    .collect(Collectors.toList());
+
+// peek() - performs action without consuming
+numbers.stream()
+    .peek(n -&gt; System.out.println("Processing: " + n))
+    .filter(n -&gt; n &gt; 5)
+    .collect(Collectors.toList());
+
+// reduce() - combines elements
+int sum = numbers.stream()
+    .reduce(0, (a, b) -&gt; a + b);
+
+// anyMatch(), allMatch(), noneMatch()
+boolean hasEven = numbers.stream().anyMatch(n -&gt; n % 2 == 0);
+boolean allPositive = numbers.stream().allMatch(n -&gt; n &gt; 0);
+boolean noneNegative = numbers.stream().noneMatch(n -&gt; n &lt; 0);
+
+// findFirst(), findAny()
+Optional&lt;Integer&gt; first = numbers.stream().findFirst();
+Optional&lt;Integer&gt; any = numbers.stream().findAny();</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>2.4 Optional Class</h2>
+
+        <p>Optional is a container object which may or may not contain a value. It helps avoid NullPointerException.</p>
+
+        <h3>Creating Optional</h3>
+        <pre><code>import java.util.Optional;
+
+// Creating Optional
+Optional&lt;String&gt; optional1 = Optional.of("Hello");
+Optional&lt;String&gt; optional2 = Optional.ofNullable(null);
+Optional&lt;String&gt; optional3 = Optional.empty();
+
+// This will throw NullPointerException
+// Optional&lt;String&gt; invalid = Optional.of(null);</code></pre>
+
+        <h3>Checking and Retrieving Values</h3>
+        <pre><code>Optional&lt;String&gt; optional = Optional.of("Hello World");
+
+// isPresent() - checks if value exists
+if (optional.isPresent()) {
+    System.out.println("Value exists");
+}
+
+// isEmpty() - checks if value is absent (Java 11+)
+if (optional.isEmpty()) {
+    System.out.println("No value");
+}
+
+// get() - retrieves value (throws exception if empty)
+String value = optional.get();
+
+// orElse() - returns value or default
+String result1 = optional.orElse("Default Value");
+
+// orElseGet() - returns value or computed default
+String result2 = optional.orElseGet(() -&gt; "Computed Default");
+
+// orElseThrow() - returns value or throws exception
+String result3 = optional.orElseThrow(() -&gt; new RuntimeException("No value"));</code></pre>
+
+        <h3>Transforming Optional</h3>
+        <pre><code>Optional&lt;String&gt; optional = Optional.of("hello");
+
+// map() - transforms value if present
+Optional&lt;Integer&gt; length = optional.map(String::length);
+// Result: Optional[5]
+
+// filter() - filters based on predicate
+Optional&lt;String&gt; filtered = optional.filter(s -&gt; s.length() &gt; 3);
+// Result: Optional[hello]
+
+Optional&lt;String&gt; filtered2 = optional.filter(s -&gt; s.length() &gt; 10);
+// Result: Optional.empty
+
+// flatMap() - transforms and flattens
+Optional&lt;String&gt; result = optional.flatMap(s -&gt; Optional.of(s.toUpperCase()));
+// Result: Optional[HELLO]</code></pre>
+
+        <h3>Practical Examples</h3>
+        <pre><code>// Example 1: Safe method return
+public Optional&lt;User&gt; findUserById(int id) {
+    User user = database.getUser(id);
+    return Optional.ofNullable(user);
+}
+
+// Usage
+Optional&lt;User&gt; userOpt = findUserById(123);
+userOpt.ifPresent(user -&gt; System.out.println("Found: " + user.getName()));
+
+// Example 2: Chaining operations
+String result = findUserById(123)
+    .map(User::getEmail)
+    .orElse("no-email@example.com");
+
+// Example 3: ifPresentOrElse (Java 9+)
+optional.ifPresentOrElse(
+    value -&gt; System.out.println("Value: " + value),
+    () -&gt; System.out.println("No value present")
+);</code></pre>
+    </div>
+
+    <h1>3. Collections Framework</h1>
+
+    <div class="section">
+        <h2>3.1 List Interface Methods</h2>
+
+        <h3>ArrayList Operations</h3>
+        <pre><code>import java.util.*;
+
+List&lt;String&gt; list = new ArrayList&lt;&gt;(Arrays.asList("Java", "Python", "C++", "JavaScript"));
+
+// Basic operations
+list.add("Ruby");                    // Add at end
+list.add(2, "Go");                   // Add at index
+list.set(0, "Kotlin");               // Replace element
+list.remove(1);                      // Remove by index
+list.remove("C++");                  // Remove by object
+String first = list.get(0);          // Get element
+int size = list.size();              // Get size
+boolean empty = list.isEmpty();      // Check if empty
+list.clear();                        // Remove all elements
+
+// Bulk operations
+List&lt;String&gt; more = Arrays.asList("Rust", "Swift");
+list.addAll(more);                   // Add all elements
+list.addAll(1, more);                // Add all at index
+list.removeAll(more);                // Remove all matching
+list.retainAll(more);                // Keep only matching
+
+// Search operations
+boolean contains = list.contains("Java");
+int index = list.indexOf("Python");         // First occurrence
+int lastIndex = list.lastIndexOf("Python"); // Last occurrence
+
+// Sublist operations
+List&lt;String&gt; subList = list.subList(1, 4); // From index 1 to 3
+
+// Conversion
+Object[] array = list.toArray();
+String[] strArray = list.toArray(new String[0]);</code></pre>
+
+        <h3>List Sorting</h3>
+        <pre><code>List&lt;Integer&gt; numbers = new ArrayList&lt;&gt;(Arrays.asList(5, 2, 8, 1, 9));
+
+// Using Collections.sort()
+Collections.sort(numbers);                    // Natural order
+Collections.sort(numbers, Collections.reverseOrder()); // Reverse
+
+// Using list.sort() (Java 8+)
+numbers.sort(null);                           // Natural order
+numbers.sort(Comparator.naturalOrder());      // Natural order
+numbers.sort(Comparator.reverseOrder());      // Reverse order
+
+// Custom sorting with lambda
+List&lt;String&gt; names = new ArrayList&lt;&gt;(Arrays.asList("Alice", "Bob", "Charlie"));
+names.sort((a, b) -&gt; a.length() - b.length()); // By length
+names.sort(String::compareToIgnoreCase);       // Case-insensitive</code></pre>
+
+        <h3>LinkedList Specific Methods</h3>
+        <pre><code>LinkedList&lt;String&gt; linkedList = new LinkedList&lt;&gt;();
+
+// First/Last operations
+linkedList.addFirst("First");        // Add at beginning
+linkedList.addLast("Last");          // Add at end
+String first = linkedList.getFirst(); // Get first element
+String last = linkedList.getLast();   // Get last element
+linkedList.removeFirst();             // Remove first
+linkedList.removeLast();              // Remove last
+
+// Queue operations
+linkedList.offer("Element");          // Add element
+linkedList.poll();                    // Retrieve and remove head
+linkedList.peek();                    // Retrieve but don't remove
+
+// Stack operations
+linkedList.push("Top");               // Push to stack
+String top = linkedList.pop();        // Pop from stack</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3.2 Set Interface Methods</h2>
+
+        <h3>HashSet Operations</h3>
+        <pre><code>Set&lt;String&gt; set = new HashSet&lt;&gt;();
+
+// Basic operations
+set.add("Apple");                     // Add element
+set.remove("Apple");                  // Remove element
+boolean contains = set.contains("Apple"); // Check existence
+int size = set.size();                // Get size
+boolean empty = set.isEmpty();        // Check if empty
+set.clear();                          // Remove all
+
+// Bulk operations
+Set&lt;String&gt; set1 = new HashSet&lt;&gt;(Arrays.asList("A", "B", "C"));
+Set&lt;String&gt; set2 = new HashSet&lt;&gt;(Arrays.asList("B", "C", "D"));
+
+// Union
+Set&lt;String&gt; union = new HashSet&lt;&gt;(set1);
+union.addAll(set2);  // [A, B, C, D]
+
+// Intersection
+Set&lt;String&gt; intersection = new HashSet&lt;&gt;(set1);
+intersection.retainAll(set2);  // [B, C]
+
+// Difference
+Set&lt;String&gt; difference = new HashSet&lt;&gt;(set1);
+difference.removeAll(set2);  // [A]</code></pre>
+
+        <h3>TreeSet Operations (Sorted Set)</h3>
+        <pre><code>TreeSet&lt;Integer&gt; treeSet = new TreeSet&lt;&gt;(Arrays.asList(5, 2, 8, 1, 9));
+
+// NavigableSet methods
+Integer first = treeSet.first();      // 1 (smallest)
+Integer last = treeSet.last();        // 9 (largest)
+Integer lower = treeSet.lower(5);     // 2 (less than 5)
+Integer higher = treeSet.higher(5);   // 8 (greater than 5)
+Integer floor = treeSet.floor(6);     // 5 (≤ 6)
+Integer ceiling = treeSet.ceiling(6); // 8 (≥ 6)
+
+// Poll operations
+Integer pollFirst = treeSet.pollFirst();  // Remove and return first
+Integer pollLast = treeSet.pollLast();    // Remove and return last
+
+// Subset operations
+SortedSet&lt;Integer&gt; headSet = treeSet.headSet(5);     // Elements &lt; 5
+SortedSet&lt;Integer&gt; tailSet = treeSet.tailSet(5);     // Elements ≥ 5
+SortedSet&lt;Integer&gt; subSet = treeSet.subSet(2, 8);    // 2 ≤ elements &lt; 8
+
+// Descending operations
+NavigableSet&lt;Integer&gt; descending = treeSet.descendingSet();</code></pre>
+
+        <h3>LinkedHashSet (Maintains Insertion Order)</h3>
+        <pre><code>Set&lt;String&gt; linkedHashSet = new LinkedHashSet&lt;&gt;();
+linkedHashSet.add("First");
+linkedHashSet.add("Second");
+linkedHashSet.add("Third");
+// Iteration maintains insertion order</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3.3 Map Interface Methods</h2>
+
+        <h3>HashMap Operations</h3>
+        <pre><code>Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+
+// Basic operations
+map.put("Alice", 25);                 // Add/Update entry
+map.putIfAbsent("Bob", 30);           // Add only if key absent
+Integer age = map.get("Alice");       // Get value
+Integer def = map.getOrDefault("Charlie", 0); // Get or default
+map.remove("Alice");                  // Remove by key
+map.remove("Bob", 30);                // Remove if value matches
+boolean hasKey = map.containsKey("Alice");
+boolean hasValue = map.containsValue(25);
+int size = map.size();
+boolean empty = map.isEmpty();
+map.clear();
+
+// Bulk operations
+Map&lt;String, Integer&gt; anotherMap = new HashMap&lt;&gt;();
+map.putAll(anotherMap);               // Add all entries
+
+// Iteration methods
+for (String key : map.keySet()) {
+    System.out.println(key);
+}
+
+for (Integer value : map.values()) {
+    System.out.println(value);
+}
+
+for (Map.Entry&lt;String, Integer&gt; entry : map.entrySet()) {
+    System.out.println(entry.getKey() + ": " + entry.getValue());
+}
+
+// Java 8 methods
+map.forEach((key, value) -&gt; System.out.println(key + ": " + value));
+
+// Compute methods
+map.compute("Alice", (k, v) -&gt; (v == null) ? 1 : v + 1);
+map.computeIfAbsent("Bob", k -&gt; 30);
+map.computeIfPresent("Alice", (k, v) -&gt; v + 1);
+
+// Merge method
+map.merge("Alice", 5, (oldVal, newVal) -&gt; oldVal + newVal);
+
+// Replace methods
+map.replace("Alice", 30);             // Replace value
+map.replace("Alice", 25, 30);         // Replace if old value matches
+map.replaceAll((k, v) -&gt; v + 1);      // Replace all values</code></pre>
+
+        <h3>TreeMap Operations (Sorted Map)</h3>
+        <pre><code>TreeMap&lt;String, Integer&gt; treeMap = new TreeMap&lt;&gt;();
+treeMap.put("Charlie", 35);
+treeMap.put("Alice", 25);
+treeMap.put("Bob", 30);
+
+// NavigableMap methods
+Map.Entry&lt;String, Integer&gt; firstEntry = treeMap.firstEntry();
+Map.Entry&lt;String, Integer&gt; lastEntry = treeMap.lastEntry();
+String firstKey = treeMap.firstKey();
+String lastKey = treeMap.lastKey();
+
+// Floor/Ceiling operations
+Map.Entry&lt;String, Integer&gt; floorEntry = treeMap.floorEntry("Bob");
+Map.Entry&lt;String, Integer&gt; ceilingEntry = treeMap.ceilingEntry("Bob");
+String lowerKey = treeMap.lowerKey("Bob");
+String higherKey = treeMap.higherKey("Bob");
+
+// Poll operations
+Map.Entry&lt;String, Integer&gt; pollFirst = treeMap.pollFirstEntry();
+Map.Entry&lt;String, Integer&gt; pollLast = treeMap.pollLastEntry();
+
+// Submap operations
+SortedMap&lt;String, Integer&gt; headMap = treeMap.headMap("Charlie");
+SortedMap&lt;String, Integer&gt; tailMap = treeMap.tailMap("Bob");
+SortedMap&lt;String, Integer&gt; subMap = treeMap.subMap("Alice", "Charlie");
+
+// Descending operations
+NavigableMap&lt;String, Integer&gt; descending = treeMap.descendingMap();</code></pre>
+
+        <h3>LinkedHashMap (Maintains Insertion Order)</h3>
+        <pre><code>Map&lt;String, Integer&gt; linkedHashMap = new LinkedHashMap&lt;&gt;();
+linkedHashMap.put("First", 1);
+linkedHashMap.put("Second", 2);
+linkedHashMap.put("Third", 3);
+// Iteration maintains insertion order
+
+// Access-order LinkedHashMap (for LRU cache)
+Map&lt;String, Integer&gt; lruMap = new LinkedHashMap&lt;&gt;(16, 0.75f, true);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3.4 Queue and Deque Interfaces</h2>
+
+        <h3>PriorityQueue Operations</h3>
+        <pre><code>Queue&lt;Integer&gt; pq = new PriorityQueue&lt;&gt;();
+
+// Basic operations
+pq.offer(5);                          // Add element
+pq.add(3);                            // Add element (throws exception if fails)
+Integer head = pq.peek();             // Retrieve but don't remove
+Integer removed = pq.poll();          // Retrieve and remove
+pq.remove();                          // Remove head (throws exception if empty)
+boolean empty = pq.isEmpty();
+int size = pq.size();
+
+// Custom comparator
+Queue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;&gt;(Comparator.reverseOrder());
+Queue&lt;String&gt; byLength = new PriorityQueue&lt;&gt;(Comparator.comparing(String::length));</code></pre>
+
+        <h3>Deque Operations (ArrayDeque)</h3>
+        <pre><code>Deque&lt;String&gt; deque = new ArrayDeque&lt;&gt;();
+
+// First/Last operations
+deque.addFirst("First");              // Add at beginning
+deque.addLast("Last");                // Add at end
+deque.offerFirst("First");            // Add at beginning (returns boolean)
+deque.offerLast("Last");              // Add at end (returns boolean)
+String first = deque.getFirst();      // Get first (throws exception)
+String last = deque.getLast();        // Get last (throws exception)
+String peekFirst = deque.peekFirst(); // Get first (returns null)
+String peekLast = deque.peekLast();   // Get last (returns null)
+deque.removeFirst();                  // Remove first (throws exception)
+deque.removeLast();                   // Remove last (throws exception)
+deque.pollFirst();                    // Remove first (returns null)
+deque.pollLast();                     // Remove last (returns null)
+
+// Stack operations
+deque.push("Element");                // Push to front
+String popped = deque.pop();          // Pop from front
+
+// Queue operations
+deque.offer("Element");               // Add to end
+deque.poll();                         // Remove from front</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3.5 Collections Utility Class</h2>
+
+        <h3>Sorting and Searching</h3>
+        <pre><code>List&lt;Integer&gt; list = new ArrayList&lt;&gt;(Arrays.asList(5, 2, 8, 1, 9));
+
+// Sorting
+Collections.sort(list);                           // Natural order
+Collections.sort(list, Collections.reverseOrder()); // Reverse
+Collections.sort(list, Comparator.naturalOrder());  // Natural order
+Collections.reverse(list);                         // Reverse list
+
+// Binary search (list must be sorted)
+int index = Collections.binarySearch(list, 5);
+
+// Shuffling
+Collections.shuffle(list);                         // Random shuffle
+Collections.shuffle(list, new Random(42));         // With seed</code></pre>
+
+        <h3>Finding Min/Max</h3>
+        <pre><code>List&lt;Integer&gt; numbers = Arrays.asList(5, 2, 8, 1, 9);
+
+// Find min/max
+Integer min = Collections.min(numbers);
+Integer max = Collections.max(numbers);
+
+// With custom comparator
+List&lt;String&gt; words = Arrays.asList("apple", "pie", "banana");
+String shortest = Collections.min(words, Comparator.comparing(String::length));
+String longest = Collections.max(words, Comparator.comparing(String::length));</code></pre>
+
+        <h3>Frequency and Replacement</h3>
+        <pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;(Arrays.asList("a", "b", "a", "c", "a"));
+
+// Count occurrences
+int frequency = Collections.frequency(list, "a"); // 3
+
+// Replace all occurrences
+Collections.replaceAll(list, "a", "z"); // [z, b, z, c, z]
+
+// Fill collection
+Collections.fill(list, "x"); // [x, x, x, x, x]</code></pre>
+
+        <h3>Rotating and Swapping</h3>
+        <pre><code>List&lt;Integer&gt; list = new ArrayList&lt;&gt;(Arrays.asList(1, 2, 3, 4, 5));
+
+// Rotate elements
+Collections.rotate(list, 2); // [4, 5, 1, 2, 3]
+
+// Swap elements
+Collections.swap(list, 0, 4); // Swap elements at index 0 and 4
+
+// Copy
+List&lt;Integer&gt; dest = new ArrayList&lt;&gt;(Arrays.asList(0, 0, 0, 0, 0));
+Collections.copy(dest, list); // Copy list to dest</code></pre>
+
+        <h3>Unmodifiable Collections</h3>
+        <pre><code>List&lt;String&gt; list = Arrays.asList("A", "B", "C");
+Set&lt;String&gt; set = new HashSet&lt;&gt;(Arrays.asList("X", "Y", "Z"));
+Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+
+// Create unmodifiable views
+List&lt;String&gt; unmodifiableList = Collections.unmodifiableList(list);
+Set&lt;String&gt; unmodifiableSet = Collections.unmodifiableSet(set);
+Map&lt;String, Integer&gt; unmodifiableMap = Collections.unmodifiableMap(map);
+
+// Trying to modify will throw UnsupportedOperationException
+// unmodifiableList.add("D"); // Exception!</code></pre>
+
+        <h3>Synchronized Collections</h3>
+        <pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+Set&lt;String&gt; set = new HashSet&lt;&gt;();
+Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+
+// Create synchronized wrappers (thread-safe)
+List&lt;String&gt; syncList = Collections.synchronizedList(list);
+Set&lt;String&gt; syncSet = Collections.synchronizedSet(set);
+Map&lt;String, Integer&gt; syncMap = Collections.synchronizedMap(map);
+
+// Manual synchronization needed for iteration
+synchronized(syncList) {
+    for (String item : syncList) {
+        System.out.println(item);
+    }
+}</code></pre>
+
+        <h3>Singleton Collections</h3>
+        <pre><code>// Immutable collections with single element
+Set&lt;String&gt; singletonSet = Collections.singleton("Only");
+List&lt;String&gt; singletonList = Collections.singletonList("Only");
+Map&lt;String, Integer&gt; singletonMap = Collections.singletonMap("key", 1);</code></pre>
+
+        <h3>Empty Collections</h3>
+        <pre><code>// Immutable empty collections
+List&lt;String&gt; emptyList = Collections.emptyList();
+Set&lt;String&gt; emptySet = Collections.emptySet();
+Map&lt;String, Integer&gt; emptyMap = Collections.emptyMap();</code></pre>
+
+        <h3>Checked Collections (Type Safety)</h3>
+        <pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+List&lt;String&gt; checkedList = Collections.checkedList(list, String.class);
+
+// Runtime type checking
+// checkedList.add(123); // ClassCastException at runtime!</code></pre>
+
+        <h3>Disjoint Check</h3>
+        <pre><code>List&lt;Integer&gt; list1 = Arrays.asList(1, 2, 3);
+List&lt;Integer&gt; list2 = Arrays.asList(4, 5, 6);
+List&lt;Integer&gt; list3 = Arrays.asList(3, 4, 5);
+
+// Check if collections have no common elements
+boolean disjoint1 = Collections.disjoint(list1, list2); // true
+boolean disjoint2 = Collections.disjoint(list1, list3); // false</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3.6 Comparator Interface</h2>
+
+        <h3>Natural Ordering</h3>
+        <pre><code>List&lt;Integer&gt; numbers = Arrays.asList(5, 2, 8, 1, 9);
+
+// Natural order comparator
+Comparator&lt;Integer&gt; natural = Comparator.naturalOrder();
+numbers.sort(natural); // [1, 2, 5, 8, 9]
+
+// Reverse natural order
+Comparator&lt;Integer&gt; reverse = Comparator.reverseOrder();
+numbers.sort(reverse); // [9, 8, 5, 2, 1]</code></pre>
+
+        <h3>Custom Comparators</h3>
+        <pre><code>class Person {
+    String name;
+    int age;
+    double salary;
+    
+    Person(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+}
+
+List&lt;Person&gt; people = Arrays.asList(
+    new Person("Alice", 30, 50000),
+    new Person("Bob", 25, 60000),
+    new Person("Charlie", 35, 45000)
+);
+
+// Comparing by single field
+Comparator&lt;Person&gt; byAge = Comparator.comparing(Person::getAge);
+Comparator&lt;Person&gt; byName = Comparator.comparing(Person::getName);
+Comparator&lt;Person&gt; bySalary = Comparator.comparing(Person::getSalary);
+
+people.sort(byAge);</code></pre>
+
+        <h3>Comparing with Key Extractor</h3>
+        <pre><code>// comparingInt, comparingLong, comparingDouble (primitive specializations)
+Comparator&lt;Person&gt; byAge = Comparator.comparingInt(Person::getAge);
+Comparator&lt;Person&gt; bySalary = Comparator.comparingDouble(Person::getSalary);
+
+// With custom comparator for the key
+List&lt;String&gt; words = Arrays.asList("apple", "Banana", "cherry");
+Comparator&lt;String&gt; caseInsensitive = 
+    Comparator.comparing(String::toLowerCase);
+words.sort(caseInsensitive);</code></pre>
+
+        <h3>Chaining Comparators</h3>
+        <pre><code>// thenComparing - chain multiple comparators
+Comparator&lt;Person&gt; byAgeAndName = Comparator
+    .comparing(Person::getAge)
+    .thenComparing(Person::getName);
+
+// thenComparingInt, thenComparingLong, thenComparingDouble
+Comparator&lt;Person&gt; byAgeThenSalary = Comparator
+    .comparingInt(Person::getAge)
+    .thenComparingDouble(Person::getSalary);
+
+people.sort(byAgeThenSalary);</code></pre>
+
+        <h3>Reversing Comparators</h3>
+        <pre><code>// Reverse any comparator
+Comparator&lt;Person&gt; byAgeDesc = Comparator
+    .comparing(Person::getAge)
+    .reversed();
+
+// Reverse with chaining
+Comparator&lt;Person&gt; byAgeDescThenNameAsc = Comparator
+    .comparing(Person::getAge).reversed()
+    .thenComparing(Person::getName);
+
+people.sort(byAgeDescThenNameAsc);</code></pre>
+
+        <h3>Null-Safe Comparators</h3>
+        <pre><code>List&lt;String&gt; list = Arrays.asList("apple", null, "banana", null, "cherry");
+
+// nullsFirst - null values come first
+Comparator&lt;String&gt; nullsFirst = Comparator
+    .nullsFirst(Comparator.naturalOrder());
+list.sort(nullsFirst); // [null, null, apple, banana, cherry]
+
+// nullsLast - null values come last
+Comparator&lt;String&gt; nullsLast = Comparator
+    .nullsLast(Comparator.naturalOrder());
+list.sort(nullsLast); // [apple, banana, cherry, null, null]
+
+// With custom comparator
+Comparator&lt;Person&gt; byNameNullsLast = Comparator
+    .nullsLast(Comparator.comparing(Person::getName));</code></pre>
+
+        <h3>Lambda Comparators</h3>
+        <pre><code>// Using lambda expressions
+people.sort((p1, p2) -&gt; p1.getName().compareTo(p2.getName()));
+
+// Multiple criteria with lambda
+people.sort((p1, p2) -&gt; {
+    int ageCompare = Integer.compare(p1.getAge(), p2.getAge());
+    if (ageCompare != 0) return ageCompare;
+    return p1.getName().compareTo(p2.getName());
+});
+
+// Comparing with custom logic
+Comparator&lt;String&gt; byLength = (s1, s2) -&gt; s1.length() - s2.length();
+List&lt;String&gt; words = Arrays.asList("apple", "pie", "banana");
+words.sort(byLength);</code></pre>
+
+        <h3>Comparable vs Comparator</h3>
+        <pre><code>// Comparable - natural ordering (implemented by class itself)
+class Student implements Comparable&lt;Student&gt; {
+    String name;
+    int rollNo;
+    
+    @Override
+    public int compareTo(Student other) {
+        return this.rollNo - other.rollNo; // Compare by roll number
+    }
+}
+
+List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+Collections.sort(students); // Uses compareTo()
+
+// Comparator - external ordering (separate class/lambda)
+Comparator&lt;Student&gt; byName = Comparator.comparing(Student::getName);
+students.sort(byName); // Uses compare() from Comparator</code></pre>
+    </div>
+
+    <h1>4. Generics in Java</h1>
+
+    <div class="section">
+        <h2>4.1 Generic Classes</h2>
+
+        <h3>Basic Generic Class</h3>
+        <pre><code>// Generic class with type parameter T
+class Box&lt;T&gt; {
+    private T content;
+    
+    public void set(T content) {
+        this.content = content;
+    }
+    
+    public T get() {
+        return content;
+    }
+}
+
+// Usage
+Box&lt;String&gt; stringBox = new Box&lt;&gt;();
+stringBox.set("Hello");
+String value = stringBox.get();
+
+Box&lt;Integer&gt; intBox = new Box&lt;&gt;();
+intBox.set(42);
+Integer number = intBox.get();</code></pre>
+
+        <h3>Generic Class with Multiple Type Parameters</h3>
+        <pre><code>class Pair&lt;K, V&gt; {
+    private K key;
+    private V value;
+    
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+    
+    public K getKey() { return key; }
+    public V getValue() { return value; }
+}
+
+// Usage
+Pair&lt;String, Integer&gt; pair = new Pair&lt;&gt;("Age", 25);
+String key = pair.getKey();
+Integer value = pair.getValue();</code></pre>
+
+        <h3>Bounded Type Parameters</h3>
+        <pre><code>// Upper bounded - T must be Number or its subclass
+class NumberBox&lt;T extends Number&gt; {
+    private T number;
+    
+    public void set(T number) {
+        this.number = number;
+    }
+    
+    public double getDoubleValue() {
+        return number.doubleValue();
+    }
+}
+
+// Usage
+NumberBox&lt;Integer&gt; intBox = new NumberBox&lt;&gt;();
+NumberBox&lt;Double&gt; doubleBox = new NumberBox&lt;&gt;();
+// NumberBox&lt;String&gt; stringBox = new NumberBox&lt;&gt;(); // Compile error!
+
+// Multiple bounds
+class MultiBox&lt;T extends Number & Comparable&lt;T&gt;&gt; {
+    private T value;
+    
+    public boolean isGreaterThan(T other) {
+        return value.compareTo(other) &gt; 0;
+    }
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>4.2 Generic Methods</h2>
+
+        <h3>Generic Method Definition</h3>
+        <pre><code>class Util {
+    // Generic method
+    public static &lt;T&gt; void printArray(T[] array) {
+        for (T element : array) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+    
+    // Generic method with bounded type
+    public static &lt;T extends Comparable&lt;T&gt;&gt; T findMax(T[] array) {
+        T max = array[0];
+        for (T element : array) {
+            if (element.compareTo(max) &gt; 0) {
+                max = element;
+            }
+        }
+        return max;
+    }
+    
+    // Generic method with multiple type parameters
+    public static &lt;K, V&gt; void printMap(Map&lt;K, V&gt; map) {
+        for (Map.Entry&lt;K, V&gt; entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
+
+// Usage
+Integer[] intArray = {1, 2, 3, 4, 5};
+String[] strArray = {"A", "B", "C"};
+
+Util.printArray(intArray);
+Util.printArray(strArray);
+
+Integer max = Util.findMax(intArray);</code></pre>
+
+        <h3>Generic Constructor</h3>
+        <pre><code>class GenericConstructor {
+    private Object value;
+    
+    &lt;T&gt; GenericConstructor(T value) {
+        this.value = value;
+    }
+}
+
+// Usage
+GenericConstructor obj1 = new GenericConstructor("Hello");
+GenericConstructor obj2 = new GenericConstructor(42);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>4.3 Wildcards</h2>
+
+        <h3>Unbounded Wildcard (?)</h3>
+        <pre><code>// Accepts any type
+public static void printList(List&lt;?&gt; list) {
+    for (Object item : list) {
+        System.out.println(item);
+    }
+}
+
+// Usage
+List&lt;Integer&gt; intList = Arrays.asList(1, 2, 3);
+List&lt;String&gt; strList = Arrays.asList("A", "B", "C");
+printList(intList);
+printList(strList);</code></pre>
+
+        <h3>Upper Bounded Wildcard (? extends Type)</h3>
+        <pre><code>// Accepts Type or any subclass of Type
+public static double sumOfList(List&lt;? extends Number&gt; list) {
+    double sum = 0.0;
+    for (Number num : list) {
+        sum += num.doubleValue();
+    }
